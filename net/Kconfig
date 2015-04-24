@@ -1,0 +1,46 @@
+menu "Networking"
+
+config NETWORK
+	bool "Enable lwIP TCP/IP stack"
+	default n
+
+config LWIP_TCP
+	bool
+	depends on NETWORK
+	default y
+	help
+	  Enable TCP support
+
+config LWIP_UDP
+	bool
+	depends on NETWORK
+	default y
+	help
+	  Enable UDP support
+
+config LWIP_SOCKET
+	bool
+	depends on NETWORK
+	default y
+	help
+	  Allows threads to open sockets with the POSIX calls.
+
+config LWIP_ARP
+ 	bool
+ 	depends on NETWORK
+ 	default y
+	help
+	  Enables address resolution protocol
+
+config LWIP_DHCP
+ 	bool
+ 	depends on NETWORK
+ 	default y
+ 
+# config LWIP_DNS
+# 	bool "Enable DNS"
+# 	depends on NETWORK
+# 	default N
+# 
+
+endmenu

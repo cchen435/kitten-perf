@@ -1,0 +1,25 @@
+running pal needs these
+export OPAL_PKGDATADIR=/etc/opal
+export OPAL_SYSCONFDIR=/etc/opal
+
+building apps and pct needs these
+export OPENMPI_SRC=/home/ddeboni/Projects/src/kitten/user/runtime/openmpi-1.2.9
+export OPENIB=/cluster_tools/ofed-1.5.3.1/
+export OPENMPI=/home/ddeboni/Projects/src/kitten/user/runtime/openmpi-1.2.9/install
+
+tar xzvf openmpi-1.2.9.tar.gz
+
+cd openmpi-1.2.9
+
+patch  -p1 -i ../openmpi-patch-1.2.9
+
+ln -s ../../../../../liblwkOrte/lwkOrteRmlBinding.h orte/mca/rml/cnos/
+
+mkdir build
+cd build
+../configure --enable-static --with-openib=$OPENIB --with-platform=redstorm --prefix=`pwd`/../install --with-openib-libdir=$OPENIB/lib64
+
+make
+
+make install
+

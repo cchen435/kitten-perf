@@ -1,0 +1,1 @@
+#define CONFIG_XPMEM_FWD 1

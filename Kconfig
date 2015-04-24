@@ -1,0 +1,97 @@
+menu "Device drivers"
+
+#
+# Device Drivers
+#
+config VGA_CONSOLE
+	bool "VGA console"
+	depends on PC
+	default PC
+
+config SERIAL_CONSOLE
+	bool "Serial console support"
+	depends on PC || CRAY_GEMINI
+	default y
+
+config VM_CONSOLE
+	bool "VM console"
+	depends on PC
+	default PC
+	help
+	  Paravirtualized console device driver for use by guest
+	  virtual machines.
+	  If the kernel will be run under Palacios, say yes.
+
+config KEYBOARD
+	bool
+	depends on PC && !PALACIOS
+	default PC
+
+config DEVFS
+	bool
+	default y
+
+config E1000
+        bool "E1000 Device Driver (e1000)"
+        depends on NETWORK && LWIP_ARP
+        default PC
+
+config NE2K
+        bool "NE2K Device Driver (rtl8139)"
+        depends on NETWORK && LWIP_ARP
+        default PC
+
+config GIGE
+        bool "GigE Device Driver (r8169)"
+        depends on NETWORK && LWIP_ARP
+        default PC
+
+config VMNET
+        bool "VM Network Driver"
+        depends on NETWORK && LWIP_ARP
+        default PC
+        help
+          Paravirtualized network device driver for use by guest
+          virtual machines.
+          If the kernel will be run under Palacios, say yes.
+
+config CRAY_GEMINI_NET
+	bool "Cray Gemini Network (gemini)"
+	depends on CRAY_GEMINI
+	default y
+
+config SATA
+	bool "SATA block driver"
+	depends on BLOCK_DEVICE
+	default PC
+	help 
+	  SATA compatible block driver for raw disk access
+
+
+source "drivers/perfctr/Kconfig"
+
+config XPMEM
+        bool "XPMEM driver"
+	default PISCES
+	help
+	  XPMEM driver
+
+choice
+        prompt "XPMEM name/forwarding service"
+        depends on XPMEM
+        default XPMEM_FWD
+
+config XPMEM_NS
+        bool "The XPMEM name service"
+        help 
+	        Select this if you want to run the XPMEM name service
+
+config XPMEM_FWD
+        bool "The XPMEM forwarding service"
+        help 
+	        Select this if you want to run the XPMEM forwarding service
+    
+endchoice
+
+
+endmenu

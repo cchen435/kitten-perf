@@ -1,0 +1,1 @@
+#undef CONFIG_BUILT_IN_GUEST_OS

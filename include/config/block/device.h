@@ -1,0 +1,1 @@
+#define CONFIG_BLOCK_DEVICE 1

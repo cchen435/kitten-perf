@@ -1,0 +1,1 @@
+#define CONFIG_PERFCTR_VIRTUAL 1

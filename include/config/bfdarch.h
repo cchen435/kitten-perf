@@ -1,0 +1,1 @@
+#define CONFIG_BFDARCH "i386"

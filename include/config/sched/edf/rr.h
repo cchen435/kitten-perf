@@ -1,0 +1,1 @@
+#undef CONFIG_SCHED_EDF_RR

@@ -1,0 +1,1 @@
+#define CONFIG_SCHED_EDF_NWC 1

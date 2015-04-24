@@ -1,0 +1,15 @@
+Unmodified Linux Headers
+========================
+pci.h
+pci-dma-compat.h
+topology.h
+
+Slightly Modified Linux Headers
+===============================
+page.h			Some normally arch-specific things moved here and genericized
+
+Extensively Modified Linux Headers
+==================================
+
+LWK-specific Linux Compatibility Headers
+========================================

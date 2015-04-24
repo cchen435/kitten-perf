@@ -1,0 +1,1 @@
+#define CONFIG_SCHED_EDF 1

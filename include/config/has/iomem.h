@@ -1,0 +1,1 @@
+#define CONFIG_HAS_IOMEM 1

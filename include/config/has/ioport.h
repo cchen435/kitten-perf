@@ -1,0 +1,1 @@
+#define CONFIG_HAS_IOPORT 1

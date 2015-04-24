@@ -1,0 +1,95 @@
+All Linux files from 2.6.27.
+
+Unmodified Linux Headers
+========================
+completion.h
+err.h
+rbtree.h
+kdev_t.h
+kref.h
+device.h
+kobject.h
+kobj_map.h
+sysfs.h
+klist.h
+workqueue.h
+timer.h
+jhash.h
+pci_regs.h
+pci.h
+pci_ids.h
+mod_devicetable.h
+dmapool.h
+pci-aspm.h
+pm.h
+pm_wakeup.h
+numa.h
+capability.h
+dmi.h
+io.h
+
+Slightly Modified Linux Headers
+===============================
+idr.h		Modified to remove RCU usage
+mempolicy.h	Commented out a few header includes
+nodemask.h	Commented out linux/threads.h include
+radix-tree.h	Remove preempt specific code
+
+Extensively Modified Linux Headers
+==================================
+dma-mapping.h	LWK-specific implementation of dma-mapping API
+mm.h		LWK-specific implementation of mem management subsystem
+gfp.h		LWK-specific implementation of get free pages API
+slab.h		LWK-specific implementation of slab.h
+sched.h		Maps directly to LWK version of same name and does a impedance matching.
+scatterlist.h	LWK specific implementation
+byteorder.h	Maps directly to LWK version of same name and adds some things from Linux not in the LWK header
+hardirq.h	LWK-specific implementation, includes LWK interrupt.h
+irq.h		LWK-specific implementation
+notifier.h	LWK-specific implementation
+kthread.h	LWK-specific implementation
+
+LWK-specific Linux Compatibility Headers
+========================================
+wait.h		Maps Linux wait queues to LWK wait queues
+compiler.h	Maps directly to LWK version of same name
+spinlock.h	Maps directly to LWK version of same name
+stddef.h	Maps directly to LWK version of same name
+kernel.h	Catch-all header for misc. things
+types.h		Maps to LWK version of same name, adds a few Linux only things
+list.h		Maps directly to LWK version of same name
+semaphore.h	Maps directly to LWK version of same name
+ioport.h	Maps to lwk/resource.h, adds a few Linux only structures
+errno.h		Maps directly to LWK version of same name
+lockdep.h	Defines stubs, LWK doesn't have lock dependency tracking
+pm_wakeup.h	Empty
+debugobjects.h	Empty
+jiffies.h	LWK doesn't have jiffies, this does impedance matching
+ktime.h		Includes jiffies.h, empty otherwise
+module.h	Defines stubs, LWK doesn't have modules
+linkage.h	Maps directly to LWK version of same name
+bitops.h	Maps directly to LWK version of same name
+interrupt.h	Empty
+init.h		Maps to LWK version of same name, adds a few Linux only things
+string.h	Maps directly to LWK version of same name, adds a few Linux only prototypes
+mutex.h		Maps directly to LWK version of same name
+sched.h		Maps directly to LWK version of same name
+stat.h		Maps directly to LWK version of same name
+log2.h		Maps directly to LWK version of same name
+moduleparam.h	Maps to linux/module.h
+delay.h		Maps to LWK version of same name, adds busy-wait msleep() implementation
+bitmap.h	Maps directly to LWK version of same name
+rwsem.h		Maps to LWK semaphore interface
+proc_fs.h	Empty
+cpumask.h	Maps directly to LWK version of same name
+topology.h	Maps to /asm/topology.h
+acpi.h		Empty
+kallsyms.h	Maps directly to LWK version of same name
+cache.h		Maps directly to LWK version of same name
+smp.h		Maps directly to LWK version of same name
+bootmem.h	Empty
+genhd.h		Empty
+memory.h	Empty
+random.h	Maps to LWK version of same name, does some impedence matching
+pfn.h		Maps directly to LWK version of same name
+vmalloc.h	Empty

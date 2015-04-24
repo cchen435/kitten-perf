@@ -1,0 +1,19 @@
+menu "Linux Compatibility Layer"
+
+source "linux/Kconfig"
+
+config PCI
+        bool
+        depends on LINUX
+        default y
+        help
+          Include support for PCI devices.
+
+
+
+source "linux/drivers/pci/Kconfig"
+
+config X86_IO_APIC
+	def_bool y
+
+endmenu
